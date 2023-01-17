@@ -17,7 +17,7 @@ header {
     width: auto;
 }
 
-.nav-link {
+header .nav-link {
     text-transform: uppercase;
     height: 100%;
     display: flex;
@@ -25,16 +25,16 @@ header {
     padding: 0px;
 }
 
-.nav-link.active {
+header .nav-link.active {
     border-bottom: 3px solid white;
 }
 
-.nav-item {
+header .nav-item {
     height: 100%;
     padding: 0px 1rem;
 }
 
-.navbar-nav {
+header .navbar-nav {
     height: 100%;
     display: flex;
     align-items: center;
