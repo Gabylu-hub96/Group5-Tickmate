@@ -14,7 +14,7 @@
   </head>
   <body>
     <header>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark ">
+        <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="container">
               <a class="navbar-brand" href="#">
                 <img src="images/logo.svg" alt="Tickmate">
@@ -42,15 +42,62 @@
           <div class="layout-options">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">Image01</div>
-                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">Image02</div>
-                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">Image03</div>
-                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">Image04</div>
+                  <h3 class="p-1 mt-3 ml-2">Select a new image for the background</h3>
+                </div>
+                <div class="row pb-4">
+                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">
+                      <a href="#" class="image-selector active">
+                      <picture>
+
+                          <img src="images/thumb-1.jpg" class="img-fluid" alt="Select image 1">
+                        
+                      </picture>
+                    </a>
+                    </div>
+                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">
+                      <a href="#"  class="image-selector">
+                      <picture>
+
+                          <img src="images/thumb-2.jpg" class="img-fluid" alt="Select image 1">
+
+                      </picture>
+                    </a>
+                    </div>
+                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">
+                      <a href="#"  class="image-selector">
+                      <picture>
+
+                          <img src="images/thumb-3.jpg" class="img-fluid" alt="Select image 1">
+
+                      </picture>
+                    </a>
+                    </div>
+                    <div class="col-md-3 col-sm-12 d-flex justify-content-center align-items-center">
+                      <a href="#" class="image-selector">
+                      <picture>
+
+                          <img src="images/thumb-4.jpg" class="img-fluid" alt="Select image 1">
+
+                      </picture>
+                    </a>
+                    </div>
                 </div>
             </div>
           </div>
     </header>
-    <section id="tasks"></section>
+    <section id="tasks">
+
+        <div class="tasks-body">
+          <h1 class="text-white">Create a new Task</h1>
+          <div class="task-input-wrapper">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+              </div>
+          </div>
+        </div>
+
+    </section>
     <!-- Gaby´s footer -->
     <footer class="footer-bs">
       <div class="container" id="footer-parent-container">
