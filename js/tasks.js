@@ -12,6 +12,20 @@ let assignedTasksList = document.getElementById('assigned-tasks').children;
 
 console.log(assignedTasksList);
 
+let checkTask = (e) => {
+    let checkMark = e.target;
+    let inputEdit = e.target.parentElement.childNodes[1];
+    if(checkMark.innerText === 'radio_button_unchecked') {
+        checkMark.innerText = "check_circle";
+        checkMark.classList.add('active');
+        inputEdit.classList.add('line-through');
+    } else {
+        checkMark.innerText = "radio_button_unchecked";
+        checkMark.classList.remove('active'); 
+        inputEdit.classList.remove('line-through');
+    }
+
+} 
 
 let removeTask = (e) => {
     e.target.parentElement.remove();
@@ -19,7 +33,7 @@ let removeTask = (e) => {
 
 // Function to edit task
 let editTask = (e) => {
-    let inputEdit = e.target.parentElement.childNodes[0];
+    let inputEdit = e.target.parentElement.childNodes[1];
     let currentButton = e.target;
 
     if (currentButton.innerText === 'Save') {
@@ -28,6 +42,7 @@ let editTask = (e) => {
         inputEdit.setAttribute('readonly', true);
     } else {
         inputEdit.removeAttribute('readonly', true);
+        inputEdit.focus();
         e.target.innerText = 'Save';
     }
 
@@ -40,6 +55,17 @@ function addTask() {
 
     let newDiv = document.createElement('div');
     newDiv.setAttribute('class', 'task');
+
+    // Creates check button
+    let checkButton = document.createElement('button');
+    checkButton.setAttribute('class', 'check');
+    checkButton.classList.add('material-symbols-outlined')    
+    checkButton.innerText = 'radio_button_unchecked';
+
+    checkButton.addEventListener('click', (e) => checkTask(e));
+
+    newDiv.appendChild(checkButton);
+
     
     let newInput = document.createElement('input');
     newInput.setAttribute('type', 'text');

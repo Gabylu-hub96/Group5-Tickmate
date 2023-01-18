@@ -132,17 +132,78 @@ header .navbar-nav {
   display: flex;
 }
 
-.task .delete {
+.task .delete, .task .edit {
   border: 1px solid #ccc;
 }
 
 .task .task-input {
   flex-grow: 1;
+  padding-left: 1rem;
+  border-radius: 0px;
+}
+
+.task .task-input:focus-visible {
+  border-radius: 0px;
+}
+
+.task-input.line-through{
+  text-decoration: line-through;
 }
 
 .material-symbols-outlined {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  transition: all .7s;
+}
+
+.task .check {
+  background-color: white;
+  width: 32px;
+  height: 32px;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 50%;
+  font-size: 32px;
+  color: #13005a;
+  transition: all;
+  margin-right: 10px;
+}
+
+
+.task .check.active {
+  background-color: lightgreen;
+  width: 32px;
+  height: 32px;
+  margin: 0px;
+  padding: 0px;
+  border-radius: 50%;
+  font-size: 32px;
+  color: #13005a;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+}
+
+
+.task .edit:hover {
+  background-color: #13005a;
+  color: white;
+}
+
+.task .delete:hover {
+  background-color: red;
+  color: white;
+}
+
+#input-task {
+  border-radius: 0px;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.2);
+  padding-left: 10px;
+}
+
+.btn.btn-success { 
+  border-radius: 0px;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 @media only screen and (min-width: 1024px) {
