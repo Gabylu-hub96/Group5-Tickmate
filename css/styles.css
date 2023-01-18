@@ -16,6 +16,9 @@ header {
     height: 60px; 
     width: auto;
 }
+header nav {
+  z-index: 10;
+}
 
 header .nav-link {
     text-transform: uppercase;
@@ -43,17 +46,73 @@ header .navbar-nav {
 .layout-options {
     width: 100%;
     background-color: #F1F1F1;
+    position: relative;
+    z-index: 9;
 }
 
 .layout-options {
     display: none;
     opacity: 0;
     transition: opacity .7s;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+
 }
 
 .layout-options.is-open {
     display: block;
     opacity: 1;
+}
+
+.image-selector {
+  border: 2px solid transparent;
+  transition: border .7s;
+  overflow: hidden;
+}
+
+.image-selector:hover {
+  border: 2px solid darkblue;
+}
+
+.image-selector.active {
+  border: 2px solid darkblue;
+}
+
+
+.image-selector img {
+  transition: transform .7s;
+ }
+ 
+ .image-selector:hover img {
+   transform: scale(1.2);
+ }
+ 
+
+#tasks {
+  background-image: url('../images/background-1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tasks-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.task-input-wrapper {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(2px);
+  padding: 2rem 2rem 1.3rem;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -68,14 +127,15 @@ header .navbar-nav {
 }
 
 .footer-bs {
-    position: absolute;
+    position: static;
     width: 100%;
     min-height: 320px;
-    bottom: 40px;
+    bottom: 0;
     left: 0;
+    background-color: #13005a;
   }
   #footer-parent-container {
-    background-color: #13005a;
+
     max-width: fit-content;
     color: aliceblue;
   }
