@@ -1,8 +1,66 @@
 const inputTask = document.getElementById("input-task");
 const buttonTask = document.getElementById("button-add");
 const assignedTasks = document.getElementById("assigned-tasks");
+const form = document.getElementById("form");
+
+let taskStorage = localStorage.getItem("tasks")
+  ? JSON.parse(localStorage.getItem("tasks"))
+  : [];
+
+if(taskStorage) {
+  taskStorage.forEach((element, index)  => {
+    addItemFromLocalStorage(element, index);
+  });
+}
+
+function addItemFromLocalStorage (element, index) {
+  let newDiv = document.createElement("div");
+  newDiv.setAttribute("class", "task");
+
+  // Creates check button
+  let checkButton = document.createElement("button");
+  checkButton.setAttribute("class", "check");
+  checkButton.classList.add("material-symbols-outlined");
+  checkButton.innerText = "radio_button_unchecked";
+
+  checkButton.addEventListener("click", (e) => checkTask(e));
+
+  newDiv.appendChild(checkButton);
+
+  let newInput = document.createElement("input");
+  newInput.setAttribute("type", "text");
+  newInput.setAttribute("class", "task-input");
+  newInput.setAttribute("readonly", true);
+  newInput.value = element;
+
+  newDiv.appendChild(newInput);
+  // Creates edit button
+  let editButton = document.createElement("button");
+  editButton.setAttribute("class", "edit");
+  editButton.classList.add("material-symbols-outlined");
+  editButton.innerText = "edit";
+
+  editButton.addEventListener("click", (e) => editTask(e));
+
+  newDiv.appendChild(editButton);
+
+  // Creates delete button
+  let deleteButton = document.createElement("button");
+  deleteButton.setAttribute("class", "delete");
+  deleteButton.classList.add("material-symbols-outlined");
+  deleteButton.innerText = "delete";
+
+  deleteButton.addEventListener("click", (e) => removeTask(e, index));
+
+  newDiv.appendChild(deleteButton);
+
+  assignedTasks.appendChild(newDiv);
+  inputTask.value = "";
+}
+
 
 buttonTask.addEventListener("click", function (e) {
+  e.preventDefault();
   return addTask();
 });
 
@@ -24,9 +82,13 @@ let checkTask = (e) => {
   }
 };
 
-let removeTask = (e) => {
+let removeTask = (e, index) => {
+  
   e.target.parentElement.remove();
+  taskStorage.splice(index, 1);
+  localStorage.setItem('tasks', JSON.stringify(taskStorage));
 };
+
 
 // Function to edit task
 let editTask = (e) => {
@@ -44,7 +106,7 @@ let editTask = (e) => {
   }
 };
 
-function addTask() {
+function addTask(index) {
   if (inputTask.value !== "") {
     let newDiv = document.createElement("div");
     newDiv.setAttribute("class", "task");
@@ -64,6 +126,8 @@ function addTask() {
     newInput.setAttribute("class", "task-input");
     newInput.setAttribute("readonly", true);
     newInput.value = inputTask.value;
+    taskStorage.push(inputTask.value);
+    localStorage.setItem('tasks', JSON.stringify(taskStorage));
 
     newDiv.appendChild(newInput);
     // Creates edit button
@@ -82,7 +146,7 @@ function addTask() {
     deleteButton.classList.add("material-symbols-outlined");
     deleteButton.innerText = "delete";
 
-    deleteButton.addEventListener("click", (e) => removeTask(e));
+    deleteButton.addEventListener("click", (e) => removeTask(e, index));
 
     newDiv.appendChild(deleteButton);
 

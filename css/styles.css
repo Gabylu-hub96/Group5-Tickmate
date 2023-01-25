@@ -137,6 +137,10 @@ header .navbar-nav {
   display: flex;
 }
 
+#form { 
+  width: 100%;
+}
+
 .task .delete,
 .task .edit {
   border: 1px solid #ccc;
