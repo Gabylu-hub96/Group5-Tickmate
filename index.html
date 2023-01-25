@@ -118,17 +118,20 @@
          
         </h1>
         <div class="task-input-wrapper">
-          <div class="input-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              id="input-task"
-              placeholder="Write a new Task"
-              aria-label="Write a new Task" />
-            <button class="btn btn-success" type="button" id="button-add">
-              +
-            </button>
-          </div>
+          <form id="form">
+            <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="taskinput"
+                  id="input-task"
+                  placeholder="Write a new Task"
+                  aria-label="Write a new Task" />
+                <button class="btn btn-success" type="submit" id="button-add">
+                  +
+                </button>
+            </div>
+          </form>
         </div>
         <div id="assigned-tasks"></div>
       </div>
@@ -208,6 +211,6 @@
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
-    <script src="js/tasks.js"></script>
+    <script src="js/newTasksLocal.js"></script>
   </body>
 </html>
